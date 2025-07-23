@@ -1,6 +1,6 @@
 # SurveySSolutions API
 
-API desarrollada como solución a la prueba técnica para la gestión de encuestas y sus respuestas.
+API desarrollada para la gestión de encuestas y sus respuestas.
 
 ---
 

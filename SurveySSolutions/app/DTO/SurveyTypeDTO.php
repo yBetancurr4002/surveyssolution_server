@@ -18,6 +18,7 @@ class SurveyTypeDTO
             'name' => 'sometimes|required|string|max:255',
             'description' => 'nullable|string',
             'survey_type_status_id' => 'sometimes|required|exists:survey_type_statuses,id',
+            'created_by' => 'required|exists:users,id',
             'updated_by' => 'required|exists:users,id',
         ]);
 
@@ -36,6 +37,7 @@ class SurveyTypeDTO
             'name' => $this->name,
             'description' => $this->description,
             'survey_type_status_id' => $this->survey_type_status_id,
+            'created_by' => $this->created_by,
             'updated_by' => $this->updated_by,
         ];
     }

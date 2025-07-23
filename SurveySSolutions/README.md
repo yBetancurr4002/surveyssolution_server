@@ -1,61 +1,81 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SurveySSolutions API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+API desarrollada como solución a la prueba técnica para la gestión de encuestas y sus respuestas.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Descripción
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+SurveySSolutions es un backend RESTful construido con Laravel + MySQL para gestionar:
+- Usuarios y autenticación (registro, login, logout)
+- Creación y gestión de tipos de encuestas y encuestas
+- Creación de preguntas y tipos de preguntas
+- Respuesta a encuestas y recolección de resultados
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠 Tecnologías
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PHP 8.2.12
+- Laravel 10.x
+- MySQL 8.0
+- Sanctum 4.1.2
+- PHPUnit 11.3
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalación
 
-## Laravel Sponsors
+### Prerrequisitos
+- PHP >= 8.1
+- Composer
+- MySQL
+- Node.js
+- Postman (opcional para pruebas)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Pasos
 
-### Premium Partners
+1. Clona el repositorio:
+```bash
+git clone https://github.com/yBetancurr4002/surveyssolution_server.git
+cd surveyssolutions
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2. Instala dependencias: `composer install`
+3. Copia y configura .env: `cp .env.example .env`
+```sh
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=surveyssolutions
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Contributing
+* Esto ajústalo de acuerdo a tu configuración MySql, el nombre que le des a la BD y tu usuario y contraseña para la BD.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Genera la clave: `php artisan key:generate`
 
-## Code of Conduct
+5. Arranca el servidor: `php artisan serve`
+    * Ejecutar el archivo de la BD, incluyendo los *seeders*.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## Autenticación
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+El API usa Laravel Sanctum.
+Para obtener un token:
 
-## License
+- `POST /api/v1/register`
+- `POST /api/v1/login`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Todas las rutas protegidas requieren header: `Authorization: Bearer <token>`
+
+## Endpoints 
+
+A continuación comparto un acceso público hecho con **Postman**, en donde podrá observar información de ejemplo sobre la implementación manual de la API, en sus diferentes recursos.
+
+* [Acceso aqui](https://api.postman.com/collections/27164618-36d57c5d-1532-47ce-87d7-a113d99e21ab?access_key=PMAT-01K0TESFEPMVW0NWGVA144T1FA) 👈
+
+## Tests
+
+Para ejecutar los tests unitarios: `php artisan test`

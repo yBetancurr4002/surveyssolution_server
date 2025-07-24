@@ -21,5 +21,8 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('/questions', QuestionController::class);
         Route::post('/surveys/{survey}/responses', [ResponseController::class, 'store']);
         Route::get('/surveys/{survey}/results', [SurveyController::class, 'results']);
+        Route::get('auth/me', function (Request $request) {
+            return $request->user();
+        });
     });
 });

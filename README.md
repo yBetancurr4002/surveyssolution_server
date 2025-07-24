@@ -74,7 +74,7 @@ Todas las rutas protegidas requieren header: `Authorization: Bearer <token>`
 
 A continuación comparto un acceso público hecho con **Postman**, en donde podrá observar información de ejemplo sobre la implementación manual de la API, en sus diferentes recursos.
 
-* [Acceso aqui](https://api.postman.com/collections/27164618-36d57c5d-1532-47ce-87d7-a113d99e21ab?access_key=PMAT-01K0TESFEPMVW0NWGVA144T1FA) 👈
+* [Acceso aqui](https://github.com/yBetancurr4002/surveyssolution_server/blob/main/SmartSolutions.postman_collection.json) 👈
 
 ## Tests
 
